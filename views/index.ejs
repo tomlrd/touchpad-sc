@@ -1,0 +1,155 @@
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Electrolize&display=swap" rel="stylesheet"> 
+  <script
+			  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+			  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+			  crossorigin="anonymous"></script>
+</head>
+
+<%- include('header'); -%>
+
+<template class="page" id="tab1.html">
+  <ons-page>
+    <%- include('p1'); -%>
+  </ons-page>
+</template>
+
+<template class="page" id="tab2.html">
+  <ons-page>
+    <%- include('p2'); -%>
+  </ons-page>
+</template>
+
+<%- include('footer'); -%>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+
+
+$(function() {
+  $(".btn-default").click(function (e) { 
+    console.log("You pressed button: " + e.button);
+    e.preventDefault();
+    var touche = $(this).attr('mapping')
+    socket.emit('keypressed', touche);
+  });
+  $(".btn-double").click(function (e) { 
+    e.preventDefault();
+    var touche = $(this).attr('mapping')
+    socket.emit('keypressedDouble', touche);
+  });
+  $(".btn-r").click(function (e) { 
+    e.preventDefault();
+    var touche = $(this).attr('mapping')
+    socket.emit('keypressedR', touche);
+  });
+});
+
+var app = {};
+
+ons.ready(function () {
+  ons.createElement('action-sheet.html', { append: true })
+    .then(function (sheet) {
+      app.showFromTemplate = sheet.show.bind(sheet);
+      app.hideFromTemplate = sheet.hide.bind(sheet);
+    });
+});
+
+app.showRoutes = function () {
+  ons.openActionSheet({
+    cancelable: true,
+    buttons: [
+      'Grim Hex',
+      'Port Olisar',
+      {
+        label: 'Label 2',
+        modifier: 'destructive'
+      }
+    ]
+  }).then(function (index) { console.log('index: ', index) });
+};
+app.showHangar = function () {
+  ons.openActionSheet({
+    cancelable: true,
+    buttons: [
+      'Arrow',
+      'Gladius'
+    ]
+  }).then(function (index) { console.log('index: ', index) });
+};
+</script>
+
+<style>
+body{
+
+}
+.page{
+  text-align: center;
+}
+.page__content{
+  padding:24px;
+  background: linear-gradient(to bottom, #0b1426 32%, #0009) !important;
+}
+.page__background{
+background-image: url('wall1.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+background-position: bottom;
+}
+.tabbar__label{
+  color: #002d47;
+}
+.btn-default, .btn-double, .btn-hold, .btn-square, .btn-rounded{
+background: linear-gradient(145deg, #0d496a36, 74%, #587495ad);
+background-color: rgba(0, 0, 0, 0);
+font-family: 'Electrolize', sans-serif;
+border-radius: 0;
+box-shadow: 0px 0px 0px 1px inset #fff3;
+padding:20px 3px;
+}
+.red{
+  background-color: #713131a8;
+}
+.pink{
+  background: linear-gradient(145deg, #0d496a00, 74%, #685895ad);
+}
+.black{
+  background-color: black;
+}
+.sep{
+background: linear-gradient(0.25turn, #3f87a600, #62d3ea, #3f87a600);
+height: 1px;
+margin: 15px;
+}
+ons-col{
+  margin:5px;
+}
+.btn-square{
+ padding: 15px 3px;
+background: linear-gradient(145deg, #00000036, 74%, #ffffff8c);
+}
+.btn-rounded{
+  width: 80px;
+height: 80px;
+border-radius: 60%;
+}
+.bottom-bar{
+padding: 0px 15px;
+background: linear-gradient(145deg, #0d496a00, 74%, #685895ad);
+border-top: 1px solid #213546;
+box-shadow: 0 0 8px 5px black;
+}
+.btn-bar{
+  background: none;
+height: 100%;
+}
+
+
+</style>
+

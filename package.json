@@ -1,0 +1,27 @@
+{
+  "name": "touchpad-sc",
+  "version": "0.1.0",
+  "description": "Touchpad for StarCitizen",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "Touchpad",
+    "Star Citizen"
+  ],
+  "author": "thomas laroudie",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^6.0.0",
+    "node-key-sender": "^1.0.11"
+  },
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "electron-json-storage": "^4.1.6",
+    "express": "^4.17.1",
+    "socket.io": "^2.2.0"
+  }
+}
