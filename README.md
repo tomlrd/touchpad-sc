@@ -2,7 +2,11 @@
 
 ## Work in progress
 
+<<<<<<< HEAD
 ![screen](https://raw.githubusercontent.com/Stylobik/touchpad-sc/master/public/screen.png)
+=======
+(https://github.com/Stylobik/touchpad-sc/public/screen.png)
+>>>>>>> master
 
 ```bash
 # Clone this repository
