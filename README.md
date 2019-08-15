@@ -2,7 +2,7 @@
 
 ## Work in progress
 
-![Image of Yaktocat](https://github.com/Stylobik/touchpad-sc/public/screen.png)
+(https://github.com/Stylobik/touchpad-sc/public/screen.png)
 
 ```bash
 # Clone this repository
