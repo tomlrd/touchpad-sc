@@ -3,6 +3,7 @@ const path = require("path");
 const ejse = require("ejs-electron");
 const express = require("express");
 const http = require("http");
+const ks = require('node-key-sender');
 const port = 3000;
 
 let mainWindow, childWindow;
@@ -45,7 +46,7 @@ function createTouchpad(req, res) {
   io.on("connection", function (socket) {
     console.log("a user connected");
     socket.on("press-flightRdy", function (msg) {
-      console.log(msg);
+      ks.sendKey(msg);
     });
   });
 
