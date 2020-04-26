@@ -2,10 +2,10 @@
 
 ## Work in progress
 
-![screen](https://raw.githubusercontent.com/Stylobik/touchpad-sc/master/public/screen.png)
+![screen](https://raw.githubusercontent.com/Stylobik/touchpad-sc/dev/public/screen.png)
 
 ```bash
-npm install
+yarn or npm i
 
-npm start
+yarn start or npm start
 ```
