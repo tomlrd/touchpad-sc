@@ -34,12 +34,21 @@ function createTouchpad(req, res) {
   app.use(express.static("public"));
 
   var server = http.createServer(app);
+  var io = require("socket.io")(server);
 
   app.get("/", function (req, res) {
     res.render("index", {
       username: "toto",
     });
   });
+
+  io.on("connection", function (socket) {
+    console.log("a user connected");
+    socket.on("press-flightRdy", function (msg) {
+      console.log(msg);
+    });
+  });
+
   server.listen(port);
 }
 
