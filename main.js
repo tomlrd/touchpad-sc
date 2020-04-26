@@ -4,7 +4,7 @@ const ejse = require("ejs-electron");
 const express = require("express");
 const http = require("http");
 const ks = require('node-key-sender');
-const port = 3000;
+const port = 8000;
 
 let mainWindow, childWindow;
 ejse.data("username", "Some Guy");
@@ -32,7 +32,7 @@ function createTouchpad(req, res) {
   app.set("port", port);
   app.set("views", path.join(__dirname, "views"));
   app.set("view engine", "ejs");
-  app.use(express.static("public"));
+  app.use(express.static(__dirname + "/public"));
 
   var server = http.createServer(app);
   var io = require("socket.io")(server);

@@ -5,7 +5,6 @@
 ![screen](https://raw.githubusercontent.com/Stylobik/touchpad-sc/dev/public/screen.png)
 
 ```bash
-yarn or npm i
-
-yarn start or npm start
+npm i && npm start
+build with npm run build
 ```

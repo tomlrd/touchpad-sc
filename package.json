@@ -1,10 +1,11 @@
 {
   "name": "touchpad-sc",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Touchpad for StarCitizen",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager . touchpadSC --overwrite --platform=win32 --arch=x64 --prune=true --out=dist"
   },
   "repository": "",
   "keywords": [
@@ -15,13 +16,14 @@
   "author": "thomas laroudie",
   "license": "MIT",
   "devDependencies": {
-    "ejs-electron": "^2.0.3",
     "electron": "^8.0.1",
-    "node-key-sender": "^1.0.11"
+    "electron-builder": "^22.5.1",
+    "electron-packager": "^14.2.1"
   },
   "dependencies": {
+    "node-key-sender": "^1.0.11",
+    "ejs-electron": "^2.0.3",
     "express": "^4.17.1",
-    "socket.io": "^2.3.0",
-    "tailwindcss": "^1.3.5"
+    "socket.io": "^2.3.0"
   }
 }
